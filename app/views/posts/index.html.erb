@@ -1,0 +1,9 @@
+<div class="topnav">
+  <%= link_to('Hacker News', action: 'index' , class: "text-center") %>
+  <%= link_to('New', action: 'index' , class: "text-center") %>
+  <%= link_to('Submit Post', action: 'new' , class: "text-center") %>
+</div>
+
+<% @posts.each do |p| %>
+	<p><%= p.title %></p>
+<% end %>
