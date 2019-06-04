@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-	include UrlEx
 
 	def index
 		@posts = Post.all
@@ -7,6 +6,8 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		fixed_link = url_extender(@post.link)
+		redirect_to fixed_link
 	end
 
 	def new
@@ -25,6 +26,14 @@ class PostsController < ApplicationController
 
 	private def post_params
 		params.require(:post).permit(:title, :link)
+	end
+
+	private def url_extender(str)
+		if !str[0,4].eql? "http"
+			(str = "http://" + str)
+		else
+			str
+		end
 	end
 
 end
