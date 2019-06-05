@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    redirect_to Post.find(params[:id]).link
+    @post = Post.find(params[:id])
   end
 
   def new

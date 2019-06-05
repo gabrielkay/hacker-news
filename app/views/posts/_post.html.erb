@@ -1,0 +1,4 @@
+<span><%= cur_post_counter + 1 %>. <%= link_to(cur_post.title, cur_post.link) %></span>
+<span class="linkprev">(<%= cur_post.link %>)</span><br>
+<span class="subtitle"><%= link_to("comments", post_path(cur_post)) %></span>
+<br>

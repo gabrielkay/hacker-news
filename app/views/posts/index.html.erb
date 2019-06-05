@@ -1,14 +1,10 @@
 <div class="topnav">
-  <%= link_to image_tag("hacker-logo.png", action: 'index', size: "22x22", alt: "Logo")%>
-  <span class="bold"><%= link_to('Hacker News', action: 'index' , class: "text-center") %></span> |
-  <%= link_to('New', action: 'index' , class: "text-center") %> |
-  <%= link_to('Submit Post', action: 'new' , class: "text-center") %>
+  <%= link_to image_tag("hacker-logo.png", action: 'index', size: "22x22", alt: "HackerNews")%>
+  <span class="bold"><%= link_to('Hacker News', action: 'index') %></span> |
+  <%= link_to('New', action: 'index') %> |
+  <%= link_to('Submit Post', action: 'new') %>
 </div>
 
 <div class="posts">
-  <% post_num = 1 %>
-  <% @posts.each do |p| %>
-    <span><%=post_num%>. <%= link_to(p.title, post_path(p) , class: "text-center") %></span><span class="linkprev">(<%= p.link %>)</span><br><br>
-    <% post_num+=1 %>
-  <% end %>
+  <%= render partial: "post", collection: @posts, as: :cur_post %>
 </div>

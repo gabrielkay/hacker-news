@@ -4,8 +4,8 @@
 
 .topnav {
   background-color: #ff6600;
-  overflow: hidden;
   font-size: 17px;
+  overflow: hidden;
 }
 
 .topnav a {
@@ -22,9 +22,16 @@
   font-size: 17px;
 }
 
-.linkprev {
-  font-size: 14px;
+.subtitle {
   color: grey;
+  font-size: 12px;
+  text-decoration: none;
+  // underline still showing up?
+}
+
+.linkprev {
+  color: grey;
+  font-size: 14px;
 }
 
 .inline {
