@@ -1,4 +1,9 @@
 <%= form_for(@post) do |f| %>
+    <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |msg| %>
+            <div class="alert"><%=msg%></div>
+        <% end %>
+    <% end %>
     <p>
     	<%= f.label :title %>
     	<%= f.text_field :title %>

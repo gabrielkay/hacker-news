@@ -2,26 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-/* Add a black background color to the top navigation */
 .topnav {
   background-color: #ff6600;
   overflow: hidden;
+  font-size: 17px;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   color: #000000;
-  padding: 2px 2px;
   text-decoration: none;
-  font-size: 12px;
 }
 
 .bold {
 	font-weight: bold;
 }
 
-.headerbar {
-	padding-right:4px;
-	line-height:12pt;
+.posts {
+	background-color: #fcf0de;
+	font-size: 17px;
 }
+
+.linkprev {
+	font-size: 14px;
+	color: grey;
+}
+
+.inline {
+	display: inline;
+}
+
+.alert {
+	background-color: #ffdddd;
+}
+
+body, html {
+	padding: 0px 20px;
+}
+
+/* Need to figure out how to eliminate gap between the two divs (topnav and posts)*/
