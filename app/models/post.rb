@@ -1,3 +1,4 @@
 class Post < ApplicationRecord
-  validates_with PostValidator
+  validates :title, presence: true
+  validates_with UrlValidator
 end
