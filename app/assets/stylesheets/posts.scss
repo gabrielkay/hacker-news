@@ -1,0 +1,47 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.topnav {
+  background-color: #ff6600;
+  font-size: 17px;
+  overflow: hidden;
+}
+
+.topnav a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.posts {
+  background-color: #fcf0de;
+  font-size: 17px;
+}
+
+.subtitle {
+  color: grey;
+  font-size: 12px;
+  text-decoration: none;
+  // underline still showing up?
+}
+
+.linkprev {
+  color: grey;
+  font-size: 14px;
+}
+
+.inline {
+  display: inline;
+}
+
+.alert {
+  background-color: #ffdddd;
+}
+
+body, html {
+  padding: 0px 20px;
+}

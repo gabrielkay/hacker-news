@@ -1,0 +1,10 @@
+<div class="topnav">
+  <%= link_to image_tag("hacker-logo.png", action: 'index', size: "22x22", alt: "HackerNews")%>
+  <span class="bold"><%= link_to('Hacker News', action: 'index') %></span> |
+  <%= link_to('New', action: 'index') %> |
+  <%= link_to('Submit Post', action: 'new') %>
+</div>
+
+<div class="posts">
+  <%= render partial: "post", collection: @posts, as: :cur_post %>
+</div>
