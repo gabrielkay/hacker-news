@@ -10,6 +10,28 @@
   </head>
 
   <body>
+
+    <div class="topnav">
+      <%= link_to image_tag("hacker-logo.png", {action: "index", controller: "posts", size: "22x22", alt: "HackerNews"})%>
+      <span class="bold"><%= link_to('Hacker News', posts_url) %></span> |
+      <%= link_to('New', posts_url) %> |
+      <%= link_to('Submit Post', new_post_url) %>
+      <span class="accounts">
+        <% if user_signed_in? %>
+          <%= current_user.email %> |
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        <% else %>
+          <%= link_to('Log In', new_user_session_path) %> |
+          <%= link_to('Create Account', new_user_registration_path) %>
+        <% end %>
+      </span>
+    </div>
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+    <% end %>
+
+
     <%= yield %>
   </body>
 </html>

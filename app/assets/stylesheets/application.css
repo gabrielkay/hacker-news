@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.accounts {
+  float: right;
+  padding-right: 4px;
+}
