@@ -39,18 +39,6 @@
   font-size: 17px;
 }
 
-.subtitle {
-  color: grey;
-  font-size: 12px;
-  text-decoration: none;
-  // underline still showing up?
-}
-
-.linkprev {
-  color: grey;
-  font-size: 14px;
-}
-
 .inline {
   display: inline;
 }

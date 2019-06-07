@@ -3,5 +3,4 @@ class Users::PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = @user.posts
   end
-
 end
