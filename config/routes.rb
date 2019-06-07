@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts
+  resources :users, only: [] do
+    resources :posts, controller: "users/posts", only: [:index]
+  end
 
 end

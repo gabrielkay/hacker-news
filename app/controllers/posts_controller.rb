@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to posts_path
     else
@@ -22,6 +23,6 @@ class PostsController < ApplicationController
   end
 
   private def post_params
-    params.require(:post).permit(:title, :link)
+    params.require(:post).permit(:title, :link, :user_id)
   end
 end
