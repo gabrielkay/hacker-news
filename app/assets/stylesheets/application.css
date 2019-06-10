@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+ p {
+  margin: 0;
+ }
+
+.accounts {
+  float: right;
+  padding-right: 4px;
+}
+
+.topnav {
+  background-color: #ff6600;
+  font-size: 17px;
+  overflow: hidden;
+}
+
+.topnav a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.posts {
+  background-color: #fcf0de;
+  font-size: 17px;
+}
+
+.inline {
+  display: inline;
+}
+
+.alert {
+  background-color: #ffdddd;
+}
+
+body, html {
+  padding: 0px 20px;
+}

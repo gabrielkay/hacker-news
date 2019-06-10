@@ -1,0 +1,6 @@
+<div class="posts">
+  <p class="userposts">
+    Showing <%= @user.email %>'s recent posts<br>
+  </p>
+  <%= render partial: "posts/post", collection: @posts, as: :cur_post %>
+</div>
