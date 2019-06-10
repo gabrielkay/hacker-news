@@ -1,6 +1,6 @@
 <div class="posts">
-  <div class="userposts">
-    Showing <%= @user.email %>'s recent posts
-  </div>
+  <span class="userposts">
+    Showing <%= @user.email %>'s recent posts<br>
+  </span>
   <%= render partial: "posts/post", collection: @posts, as: :cur_post %>
 </div>
