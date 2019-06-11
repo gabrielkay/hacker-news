@@ -7,6 +7,7 @@ describe Post, type: :model do
       should belong_to(:user)
     end
   end
+
   it "can't create post without link" do
     post = build(:post, link: nil)
     post.valid?
