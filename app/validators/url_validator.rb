@@ -1,6 +1,6 @@
 class UrlValidator < ActiveModel::Validator
   def validate(record)
-    record.errors[:base] << 'You must submit a valid URL. You entered: ' + record.link unless valid_url?(record.link)
+    record.errors[:base] << 'You must submit a valid URL. You entered: ' + record.link.to_s unless valid_url?(record.link)
   end
 
   private
