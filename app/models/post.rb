@@ -3,4 +3,5 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates_with UrlValidator
   belongs_to :user
+  has_many :comment
 end
