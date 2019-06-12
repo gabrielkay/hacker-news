@@ -9,12 +9,9 @@ describe Post, type: :model do
     end
   end
 
-  context 'post with no link' do
-    let(:post) { build(:post, link: nil) }
+  context 'post with no title' do
+    let(:post) { build(:post, title: nil) }
 
-    it "can't create post without link" do
-      post.valid?
-      expect(post.errors[:base]).to include("You must submit a valid URL. You entered: ")
-    end
+    it { should validate_presence_of(:title) }
   end
 end
