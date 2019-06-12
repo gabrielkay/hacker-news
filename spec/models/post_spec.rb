@@ -4,9 +4,8 @@ describe Post, type: :model do
   describe "Associations" do
     subject { build(:post) }
 
-    it "should belong to a user" do
-      should belong_to(:user)
-    end
+    it { should belong_to(:user) }
+    it { should have_many(:comments) }
   end
 
   context 'post with no title' do

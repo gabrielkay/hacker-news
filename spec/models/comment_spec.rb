@@ -4,13 +4,8 @@ describe Comment, type: :model do
   describe "Associations" do
     subject { build(:comment) }
 
-    it "should belong to a user" do
-      should belong_to(:user)
-    end
-
-    it "should belong to a post" do
-      should belong_to(:post)
-    end
+    it { should belong_to(:user) }
+    it { should belong_to(:post) }
   end
 
   context 'empty comment' do
