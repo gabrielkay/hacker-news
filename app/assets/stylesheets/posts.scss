@@ -9,7 +9,16 @@
   // underline still showing up?
 }
 
-.linkprev {
+.linkprev, .username {
   color: grey;
   font-size: 14px;
+}
+
+.commentsection {
+  margin: 0;
+}
+
+.posts, .show {
+  background-color: #fcf0de;
+  font-size: 17px;
 }
