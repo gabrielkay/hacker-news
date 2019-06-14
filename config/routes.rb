@@ -9,8 +9,12 @@ Rails.application.routes.draw do
     resources :posts, controller: "users/posts", only: [:index]
   end
 
-  resources :posts, :comments do
-    resources :comments
+  resources :posts do
+    resources :comments, only: [:show, :create]
+  end
+
+  resources :comments do
+    resources :comments, only: [:show, :create]
   end
 
 end
