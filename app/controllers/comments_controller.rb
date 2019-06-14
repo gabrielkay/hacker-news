@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+before_action :find_commentable
 
   def show
     @comment = Comment.find(params[:id])
@@ -9,7 +10,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to post_path(@comment.post_id)
+      redirect_to post_path(???)
     else
       redirect_back(fallback_location: root_path)
     end
@@ -17,6 +18,11 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:body, :post_id, :comment_id)
+      params.require(:comment).permit(:body, :commentable_type, :commentable_id)
+    end
+
+    def find_commentable
+      @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+      @commentable = Post.find_by_id(params[:post_id]) if params[:post_id]
     end
 end
