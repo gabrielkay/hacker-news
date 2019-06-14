@@ -4,17 +4,16 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts
   resources :users, only: [] do
     resources :posts, controller: "users/posts", only: [:index]
   end
 
-  resources :posts do
-    resources :comments, only: [:show, :create]
+  resources :posts, only: [:index, :show, :new, :create] do
+    resources :comments, only: [:create]
   end
 
-  resources :comments do
-    resources :comments, only: [:show, :create]
+  resources :comments, only: [:show] do
+    resources :comments, only: [:create]
   end
 
 end
