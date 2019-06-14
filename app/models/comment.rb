@@ -4,4 +4,6 @@ class Comment < ApplicationRecord
   validates :body, presence: true
   belongs_to :post
   belongs_to :user
+  belongs_to :comment, :optional => true
+  has_many :comments
 end

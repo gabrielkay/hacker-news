@@ -1,0 +1,19 @@
+<div class="show">
+  <p class="username"><%= @comment.user.email %> <%= time_ago_in_words(@comment.created_at) %> ago</p>
+  <p><%= @comment.body %></p>
+  <%= form_for [@comment, @new_comment] do |f| %>
+    <% if @comment.errors.any? %>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <div class="alert"><%= msg %></div>
+      <% end %>
+    <% end %>
+    <p>
+      <%= f.text_field :body %>
+    </p>
+    <%= f.hidden_field :post_id, :value => @comment.post_id %>
+    <%= f.hidden_field :comment_id, :value => @comment.id %>
+    <p>
+      <%= f.submit %>
+    </p><br>
+  <% end %>
+</div>

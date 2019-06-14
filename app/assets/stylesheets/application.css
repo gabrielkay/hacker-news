@@ -38,17 +38,16 @@
   font-weight: bold;
 }
 
-.posts {
-  background-color: #fcf0de;
-  font-size: 17px;
-}
-
 .inline {
   display: inline;
 }
 
 .alert {
   background-color: #ffdddd;
+}
+
+.commentpartial {
+  margin-left: 20px;
 }
 
 body, html {
