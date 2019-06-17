@@ -2,11 +2,6 @@
   <p class="username"><%= @comment.user.email %> <%= time_ago_in_words(@comment.created_at) %> ago</p>
   <p><%= @comment.body %></p>
   <%= form_for [@comment, @new_comment] do |f| %>
-    <% if @new_comment.errors.any? %>
-      <% @new_comment.errors.full_messages.each do |msg| %>
-        <div class="alert"><%= msg %></div>
-      <% end %>
-    <% end %>
     <p>
       <%= f.text_field :body %>
     </p>

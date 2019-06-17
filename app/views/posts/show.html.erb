@@ -4,11 +4,6 @@
   <span class="subtitle"><%= link_to("comments", post_path(@post)) %></span>
   <br><br>
   <%= form_for [@post, @comment] do |f| %>
-    <% if @comment.errors.any? %>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <div class="alert"><%= msg %></div>
-      <% end %>
-    <% end %>
     <p>
       <%= f.text_field :body %>
     </p>
