@@ -5,7 +5,6 @@ describe Comment, type: :model do
     subject { build(:comment) }
 
     it { should belong_to(:user) }
-    it { should belong_to(:post) }
   end
 
   context 'empty comment' do
@@ -18,11 +17,5 @@ describe Comment, type: :model do
     let(:comment) { build(:comment, user_id: nil) }
 
     it { should validate_presence_of(:user_id) }
-  end
-
-  context 'comment with no post_id' do
-    let(:comment) { build(:comment, post_id: nil) }
-
-    it { should validate_presence_of(:post_id) }
   end
 end
