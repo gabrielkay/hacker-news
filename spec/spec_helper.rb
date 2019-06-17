@@ -13,6 +13,7 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'capybara/rspec'
 RSpec.configure do |config|
   # Adds FactoryBot methods
   # config.include FactoryBot::Syntax::Methods
