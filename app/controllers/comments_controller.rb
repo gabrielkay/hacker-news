@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-before_action :find_commentable
+before_action :find_commentable, only: [:show, :create]
 
   def show
     @comment = Comment.find(params[:id])
