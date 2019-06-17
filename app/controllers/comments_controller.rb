@@ -10,7 +10,11 @@ before_action :find_commentable
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to post_path(???)
+      if params[:comment_id]
+        redirect_to root_path
+      else
+        redirect_to post_path(@commentable)
+      end
     else
       redirect_back(fallback_location: root_path)
     end
