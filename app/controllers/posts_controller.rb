@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.select { |comment|  comment.comment_id == nil }
+    @comments = @post.comments
     @comment = Comment.new
   end
 
