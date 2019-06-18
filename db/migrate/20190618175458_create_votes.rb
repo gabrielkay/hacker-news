@@ -4,7 +4,7 @@ class CreateVotes < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :votable_id
       t.string :votable_type
-      #1 for upvote, -1 for downvote
+      #True for upvote, False for downvote
       t.boolean :vote_type
 
       t.timestamps
