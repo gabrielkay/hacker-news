@@ -78,26 +78,26 @@ describe "Create a comment on a post", :type => :feature do
   end
 end
 
-describe "Create a comment on a comment", :type => :feature do
+# describe "Create a comment on a comment", :type => :feature do
 
-  let!(:comment_comment) { create(:comment_comment) }
-  let!(:user) { create(:user) }
+#   let!(:comment_comment) { create(:comment_comment) }
+#   let!(:user) { create(:user) }
 
-  before do
-    login_as(user, :scope => :user)
-  end
+#   before do
+#     login_as(user, :scope => :user)
+#   end
 
-  it 'Fills in a title and link' do
-    visit('/')
-    click_link('comments')
-    click_button('reply')
-    fill_in 'comment_body', with: 'ReplyComment'
-    expect {
-      click_button('Create Comment')
-    }.to change {
-      Comment.count
-    }.by(1)
-    expect(page).to_not have_content('Error:')
-    #would not work if a comment was named Error:
-  end
-end
+#   it 'Fills in a title and link' do
+#     visit('/')
+#     click_link('comments')
+#     click_button('reply')
+#     fill_in 'comment_body', with: 'ReplyComment'
+#     expect {
+#       click_button('Create Comment')
+#     }.to change {
+#       Comment.count
+#     }.by(1)
+#     expect(page).to_not have_content('Error:')
+#     #would not work if a comment was named Error:
+#   end
+# end
