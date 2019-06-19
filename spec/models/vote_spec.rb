@@ -5,15 +5,14 @@ RSpec.describe Vote, type: :model do
     subject { build(:up_vote) }
 
     it { should belong_to(:user) }
-    # it { should belong_to(:post) }
-    # error says no foreign key
+    it { should belong_to(:votable) }
   end
 
   describe "Associations for vote on comment" do
     subject { build(:up_vote_comment) }
 
     it { should belong_to(:user) }
-    # it { should belong_to(:comment) }
+    it { should belong_to(:votable) }
   end
 
   context 'Has user_id' do
