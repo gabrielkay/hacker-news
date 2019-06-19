@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 2019_06_18_175458) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "votable_id"
-    t.string "votable_type"
-    t.boolean "vote_type"
+    t.integer "user_id", null: false
+    t.integer "votable_id", null: false
+    t.string "votable_type", null: false
+    t.integer "vote_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

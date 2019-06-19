@@ -18,7 +18,7 @@ end
 
 describe "Log into an account", :type => :feature do
 
-  let!(:user) { FactoryBot.create(:user) }
+  let!(:user) { FactoryBot.create(:user, email: "example@default.com") }
 
   it 'Logs in' do
     visit('/users/sign_in')
@@ -54,10 +54,10 @@ describe "Create a post", :type => :feature do
 end
 
 
-describe "Create a comment", :type => :feature do
+describe "Create a comment on a post", :type => :feature do
 
   let!(:post) { create(:post) }
-  let!(:user) { create(:user, email: "secondaccount@example.com") }
+  let!(:user) { create(:user) }
 
   before do
     login_as(user, :scope => :user)
