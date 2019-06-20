@@ -12,7 +12,7 @@ class VotesController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
-      # (must be logged in to vote?)
+      # Not sure how to render errors
     end
   end
 
