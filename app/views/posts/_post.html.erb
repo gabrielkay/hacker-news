@@ -1,10 +1,10 @@
-<span><%= cur_post_counter + 1 %>.<%= link_to(cur_post.title, cur_post.link) %></span>
+<span><%= cur_post_counter + 1 %>. <%= link_to(cur_post.title, cur_post.link) %></span>
 <span class="linkprev">(<%= cur_post.link %>)</span><br>
-<span class="subtitle"><%= link_to("comments", post_path(cur_post)) %></span>
+<span class="subtitle"><p><%= cur_post.votes.sum(:vote_type) %> points by <%= cur_post.user.email %> <%= time_ago_in_words(cur_post.created_at) %> ago | <%= link_to("comments", post_path(cur_post)) %></p></span>
 <%= form_for [cur_post, @vote] do |f| %>
-    <%= f.hidden_field :votable_type, :value => 'Post' %>
-    <%= f.hidden_field :votable_id, :value => cur_post.id %>
-    <%= f.submit '+1', name: 'up_vote' %>
-    <%= f.submit '-1', name: 'down_vote' %>
-  <% end %>
+  <%= f.hidden_field :votable_type, :value => 'Post' %>
+  <%= f.hidden_field :votable_id, :value => cur_post.id %>
+  <%= f.submit '+1', name: 'up_vote' %>
+  <%= f.submit '-1', name: 'down_vote' %>
+<% end %>
 <br>

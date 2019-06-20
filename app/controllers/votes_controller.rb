@@ -9,7 +9,7 @@ class VotesController < ApplicationController
       @vote.vote_type = -1
     end
     if (@vote.save)
-      redirect_to("http://google.com")
+      redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
       # (must be logged in to vote?)
@@ -17,6 +17,6 @@ class VotesController < ApplicationController
   end
 
   def vote_params
-     params.require(:vote).permit(:votable_type, :votable_id, :up_vote, :down_vote)
+     params.require(:vote).permit(:votable_type, :votable_id, :vote_type)
   end
 end
