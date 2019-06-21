@@ -5,5 +5,5 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
-  has_many :voters, through: :votes, source: :votable, source_type: "User"
+  has_many :voters, through: :votes, source: :votable, source_type: 'User'
 end

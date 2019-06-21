@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Post, type: :model do
-  describe "Associations" do
+  describe 'Associations' do
     subject { build(:post) }
 
     it { should belong_to(:user) }

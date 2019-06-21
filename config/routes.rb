@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :users, only: [] do
-    resources :posts, controller: "users/posts", only: [:index]
+    resources :posts, controller: 'users/posts', only: [:index]
   end
 
-  resources :posts, only: [:index, :show, :new, :create] do
+  resources :posts, only: %i[index show new create] do
     resources :comments, only: [:create]
     resources :votes, only: [:create]
   end

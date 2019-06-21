@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  describe "Associations" do
+  describe 'Associations' do
     subject { build(:user) }
 
     it { should have_many(:posts) }

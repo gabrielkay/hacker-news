@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Comment, type: :model do
-  describe "Associations" do
+  describe 'Associations' do
     subject { build(:comment) }
 
     it { should belong_to(:user) }
