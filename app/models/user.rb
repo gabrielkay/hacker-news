@@ -6,9 +6,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :votes
-  has_many :voted_on_posts, through: :votes, source: :votable, source_type: "Post"
-  has_many :voted_on_comments, through: :votes, source: :votable, source_type: "Comment"
-
+  has_many :voted_on_posts, through: :votes, source: :votable, source_type: 'Post'
+  has_many :voted_on_comments, through: :votes, source: :votable, source_type: 'Comment'
 
   def karma
     user_karma = 0
