@@ -17,13 +17,17 @@
       <%= link_to('New', posts_url) %> |
       <%= link_to('Submit Post', new_post_url) %>
       <span class="accounts">
-        <% if user_signed_in? %>
-          <%= link_to(current_user.email, user_posts_path(current_user)) %> |
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-        <% else %>
-          <%= link_to('Log In', new_user_session_path) %> |
-          <%= link_to('Create Account', new_user_registration_path) %>
-        <% end %>
+        <p>
+          <% if user_signed_in? %>
+            <%= link_to(current_user.email, user_posts_path(current_user)) %>
+            (<%= current_user.karma %>)
+            |
+            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          <% else %>
+            <%= link_to('Log In', new_user_session_path) %> |
+            <%= link_to('Create Account', new_user_registration_path) %>
+          <% end %>
+        </p>
       </span>
     </div>
 

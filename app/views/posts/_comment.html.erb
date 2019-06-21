@@ -1,7 +1,12 @@
-<p class="username"><%= com.user.email %> <%= time_ago_in_words(com.created_at) %> ago</p>
+<p class="username"><%= com.votes.sum("vote_type") %> karma by <%= com.user.email %> <%= time_ago_in_words(com.created_at) %> ago</p>
 <p><%= com.body %></p>
+<%= form_for [com, @vote] do |f| %>
+  <%= f.hidden_field :votable_type, :value => 'Comment' %>
+  <%= f.hidden_field :votable_id, :value => com.id %>
+  <%= f.submit '+1', name: 'up_vote' %>
+  <%= f.submit '-1', name: 'down_vote' %>
+<% end %>
 <%= link_to("reply", comment_path(com)) %>
 <div class="commentpartial">
   <%= render partial: "comment", collection: com.comments, as: :com %>
 </div>
-
