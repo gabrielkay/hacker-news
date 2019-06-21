@@ -20,14 +20,7 @@
         <p>
           <% if user_signed_in? %>
             <%= link_to(current_user.email, user_posts_path(current_user)) %>
-            <% karma = 0 %>
-            <% current_user.posts.each do |p| %>
-              <% karma += p.votes.sum('vote_type') %>
-            <% end %>
-            <% current_user.comments.each do |c| %>
-              <% karma += c.votes.sum('vote_type') %>
-            <% end %>
-            (<%= karma %>)
+            (<%= current_user.karma %>)
             |
             <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
           <% else %>
