@@ -10,20 +10,19 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      if params[:comment_id]
-        redirect_to root_path
-      else
-        redirect_to post_path(@commentable)
-      end
+      redirect_to post_path(@comment.parent_post_id)
     else
-      redirect_back(fallback_location: root_path)
+      @comment.errors.full_messages.each do |msg|
+        flash[:error] = "Error: #{ msg }"
+      end
+      redirect_to post_path(@comment.parent_post_id)
     end
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :commentable_type, :commentable_id)
+    params.require(:comment).permit(:body, :commentable_type, :commentable_id, :parent_post_id)
   end
 
   def find_commentable
