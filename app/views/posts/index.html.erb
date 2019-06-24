@@ -1,3 +1,9 @@
 <div class="posts">
   <%= render partial: "post", collection: @posts, as: :cur_post %>
 </div>
+<div>
+  <span>
+    <%= link_to_if @page > 0, "<< Previous", posts_path(page: @page - 1) if @page != 0 %>
+    <%= link_to "Next >>", posts_path(page: @page + 1) if @posts.size == 5 %>
+  </span>
+</div>
