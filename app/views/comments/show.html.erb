@@ -7,6 +7,7 @@
     </p>
     <%= f.hidden_field :commentable_type, :value => 'Comment' %>
     <%= f.hidden_field :commentable_id, :value => @comment.id %>
+    <%= f.hidden_field :parent_post_id, :value => @comment.parent_post_id %>
     <p>
       <%= f.submit %>
     </p><br>

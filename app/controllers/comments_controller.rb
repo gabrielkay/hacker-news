@@ -9,21 +9,17 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    if @comment.save
-      if params[:comment_id]
-        redirect_to root_path
-      else
-        redirect_to post_path(@commentable)
-      end
-    else
-      redirect_back(fallback_location: root_path)
-    end
+    @post = Post.find_by(id: comment_params[:parent_post_id])
+    @comments = @post.comments
+    @comment = Comment.new
+    @vote = Vote.new
+    render 'posts/show'
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :commentable_type, :commentable_id)
+    params.require(:comment).permit(:body, :commentable_type, :commentable_id, :parent_post_id)
   end
 
   def find_commentable

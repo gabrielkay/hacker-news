@@ -8,5 +8,5 @@
 <% end %>
 <%= link_to("reply", comment_path(com)) %>
 <div class="commentpartial">
-  <%= render partial: "comment", collection: com.comments, as: :com %>
+  <%= render partial: "posts/comment", collection: com.comments, as: :com %>
 </div>
