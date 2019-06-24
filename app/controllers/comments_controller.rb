@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@comment.parent_post_id)
     else
       @comment.errors.full_messages.each do |msg|
-        flash[:error] = "Error: #{ msg }"
+        flash[:error] = "Error: #{msg}"
       end
       redirect_to post_path(@comment.parent_post_id)
     end

@@ -1,6 +1,19 @@
 class PostsController < ApplicationController
+  PAGE_SIZE = 5
+
   def index
-    @posts = Post.all
+    if params[:sort] == 'top'
+      @posts = Post.all
+      descending = -1
+      @posts = @posts.sort_by do |post|
+        post.post_points * descending
+      end
+    else
+      @posts = Post.all
+    end
+    @page = (params[:page] || 0).to_i
+    @posts = @posts[(PAGE_SIZE * @page), (PAGE_SIZE)]
+
     @vote = Vote.new
   end
 

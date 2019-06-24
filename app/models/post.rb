@@ -6,4 +6,8 @@ class Post < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
   has_many :voters, through: :votes, source: :votable, source_type: 'User'
+
+  def post_points
+    votes.sum('vote_type')
+  end
 end

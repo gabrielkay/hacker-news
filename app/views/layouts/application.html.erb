@@ -15,6 +15,7 @@
       <%= link_to image_tag("hacker-logo.png", {action: "index", controller: "posts", size: "22x22", alt: "HackerNews"})%>
       <span class="bold"><%= link_to('Hacker News', posts_url) %></span> |
       <%= link_to('New', posts_url) %> |
+      <%= link_to('Top', posts_url(sort: 'top')) %> |
       <%= link_to('Submit Post', new_post_url) %>
       <span class="accounts">
         <p>
