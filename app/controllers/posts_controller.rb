@@ -1,23 +1,19 @@
 class PostsController < ApplicationController
 
-  helper_method :top
-
   PAGE_SIZE = 5
 
   def index
-
-    #if params[:sort] == "top"
+    if params[:sort] == 'top'
       @posts = Post.all
       descending = -1
       @posts = @posts.sort_by do |post|
         post.post_points * descending
       end
-    #else
-      #@posts = Post.all
-    #end
+    else
+      @page = (params[:page] || 0).to_i
+      @posts = Post.offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+    end
 
-    @page = (params[:page] || 0).to_i
-    #@posts = Post.offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
     @vote = Vote.new
   end
 
