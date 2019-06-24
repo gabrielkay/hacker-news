@@ -8,7 +8,6 @@ class Post < ApplicationRecord
   has_many :voters, through: :votes, source: :votable, source_type: 'User'
 
   def post_points
-    votes.sum("vote_type")
+    votes.sum('vote_type')
   end
-
 end

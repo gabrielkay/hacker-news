@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   PAGE_SIZE = 5
 
   def index
