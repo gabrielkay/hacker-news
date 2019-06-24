@@ -3,7 +3,7 @@
   <p><%= @comment.body %></p>
   <%= form_for [@comment, @new_comment] do |f| %>
     <p>
-      <%= f.text_field :body %>
+      <%= f.text_field :body, required: true %>
     </p>
     <%= f.hidden_field :commentable_type, :value => 'Comment' %>
     <%= f.hidden_field :commentable_id, :value => @comment.id %>

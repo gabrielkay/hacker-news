@@ -9,13 +9,18 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    #if @comment.save
-    @comment.save
-    @post = Post.find_by(id: comment_params[:parent_post_id])
-    @comments = @post.comments
-    @comment = Comment.new
-    @vote = Vote.new
-    render 'posts/show'
+    if @comment.save
+      redirect_to post_path(@comment.parent_post_id)
+    else
+      @comment.errors.full_messages.each do |msg|
+        flash[:error] = "Error: #{ msg }"
+      end
+      redirect_to post_path(@comment.parent_post_id)
+    end
+    # @post = Post.find_by(id: comment_params[:parent_post_id])
+    # @comments = @post.comments
+    # @comment = Comment.new
+    # @vote = Vote.new
   end
 
   private

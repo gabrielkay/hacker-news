@@ -4,13 +4,8 @@
   <span class="subtitle"><%= link_to("comments", post_path(@post)) %></span>
   <br><br>
   <%= form_for [@post, @comment] do |f| %>
-    <% if @comment.errors.any? %>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <div class="alert"><p>Error: <%= msg %></p></div>
-      <% end %>
-    <% end %>
     <p>
-      <%= f.text_field :body %>
+      <%= f.text_field :body, required: true %>
     </p>
     <%= f.hidden_field :commentable_type, :value => 'Post' %>
     <%= f.hidden_field :commentable_id, :value => @post.id %>
