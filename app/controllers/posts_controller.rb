@@ -9,9 +9,10 @@ class PostsController < ApplicationController
         post.post_points * descending
       end
     else
-      @page = (params[:page] || 0).to_i
-      @posts = Post.offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+      @posts = Post.all
     end
+    @page = (params[:page] || 0).to_i
+    @posts = @posts[(PAGE_SIZE * @page), (PAGE_SIZE)]
 
     @vote = Vote.new
   end
