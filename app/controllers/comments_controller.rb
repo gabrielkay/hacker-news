@@ -17,10 +17,6 @@ class CommentsController < ApplicationController
       end
       redirect_to post_path(@comment.parent_post_id)
     end
-    # @post = Post.find_by(id: comment_params[:parent_post_id])
-    # @comments = @post.comments
-    # @comment = Comment.new
-    # @vote = Vote.new
   end
 
   private
