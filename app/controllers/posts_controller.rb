@@ -9,7 +9,7 @@ class PostsController < ApplicationController
         post.post_points * descending
       end
     else
-      @posts = Post.all
+      @posts = Post.all.order(:created_at).reverse_order
     end
     @page = (params[:page] || 0).to_i
     @posts = @posts[(PAGE_SIZE * @page), (PAGE_SIZE)]
